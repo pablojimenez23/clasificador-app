@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f0f;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.tarjeta {
+  background: #1a1a1a;
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid #2a2a2a;
+}
+
+.titulo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.subtitulo {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 32px;
+}
+
+.zona-subida {
+  margin-bottom: 24px;
+}
+
+.input-oculto {
+  display: none;
+}
+
+.etiqueta-subida {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #76b900;
+  color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.etiqueta-subida:hover {
+  background: #8fd400;
+}
+
+.preview-contenedor {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+}
+
+.preview-imagen {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.boton-clasificar {
+  width: 100%;
+  padding: 14px;
+  background: #76b900;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 24px;
+}
+
+.boton-clasificar:hover {
+  background: #8fd400;
+}
+
+.boton-clasificar:disabled {
+  background: #444;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #ff4444;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.resultado {
+  background: #111;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #2a2a2a;
+}
+
+.clasificacion-principal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.confianza {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.etiqueta {
+  font-size: 13px;
+  color: #888;
+}
+
+.valor {
+  font-size: 20px;
+  font-weight: 700;
+  color: #76b900;
+}
+
+.top3 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.top3-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.top3-clase {
+  font-size: 13px;
+  color: #ccc;
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.barra-contenedor {
+  flex: 1;
+  height: 6px;
+  background: #2a2a2a;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.barra {
+  height: 100%;
+  background: #76b900;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.top3-prob {
+  font-size: 13px;
+  color: #888;
+  width: 45px;
+  text-align: right;
+  flex-shrink: 0;
+}

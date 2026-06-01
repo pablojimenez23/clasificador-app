@@ -20,7 +20,7 @@ aplicacion.add_middleware(
 clases = [
     'battery', 'biological', 'brown-glass', 'cardboard',
     'clothes', 'green-glass', 'metal', 'paper',
-    'plastic', 'shoes', 'trash', 'white-glass'
+    'plastic', 'shoes', 'trash', 'unknown', 'white-glass'
 ]
 
 # Carga del modelo al iniciar el servidor

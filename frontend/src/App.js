@@ -1,12 +1,30 @@
 import { useState } from "react";
 import "./App.css";
 
+const nombresClases = {
+  'battery':     'Esto es una bateria',
+  'biological':  'Esto es un residuo biologico',
+  'brown-glass': 'Esto es vidrio cafe',
+  'cardboard':   'Esto es carton',
+  'clothes':     'Esto es ropa',
+  'green-glass': 'Esto es vidrio verde',
+  'metal':       'Esto es metal',
+  'paper':       'Esto es papel',
+  'plastic':     'Esto es plastico',
+  'shoes':       'Esto es calzado',
+  'trash':       'Esto es basura',
+  'unknown':     'No se pudo identificar el residuo',
+  'white-glass': 'Esto es vidrio blanco'
+};
+
+const API_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:8000';
+
 function App() {
-  const [imagen, setImagen]           = useState(null);
-  const [preview, setPreview]         = useState(null);
-  const [resultado, setResultado]     = useState(null);
-  const [cargando, setCargando]       = useState(false);
-  const [error, setError]             = useState(null);
+  const [imagen, setImagen]       = useState(null);
+  const [preview, setPreview]     = useState(null);
+  const [resultado, setResultado] = useState(null);
+  const [cargando, setCargando]   = useState(false);
+  const [error, setError]         = useState(null);
 
   const manejarImagen = (evento) => {
     const archivo = evento.target.files[0];
@@ -26,7 +44,7 @@ function App() {
     formulario.append("imagen", imagen);
 
     try {
-      const respuesta = await fetch("http://127.0.0.1:8000/clasificar", {
+      const respuesta = await fetch(`${API_URL}/clasificar`, {
         method: "POST",
         body: formulario,
       });
@@ -79,8 +97,9 @@ function App() {
         {resultado && (
           <div className="resultado">
             <div className="clasificacion-principal">
-              <span className="etiqueta">Clasificacion</span>
-              <span className="valor">{resultado.clasificacion}</span>
+              <span className="valor">
+                {nombresClases[resultado.clasificacion.toLowerCase()]}
+              </span>
             </div>
             <div className="confianza">
               <span className="etiqueta">Confianza</span>
@@ -90,7 +109,9 @@ function App() {
               <span className="etiqueta">Top 3</span>
               {resultado.top3.map((item, index) => (
                 <div key={index} className="top3-item">
-                  <span className="top3-clase">{item.clase}</span>
+                  <span className="top3-clase">
+                    {nombresClases[item.clase.toLowerCase()] || item.clase}
+                  </span>
                   <div className="barra-contenedor">
                     <div
                       className="barra"
